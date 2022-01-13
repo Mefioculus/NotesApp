@@ -8,6 +8,7 @@ namespace NotesLibs {
         #region Fields and Properties
 
         public List<string> sentences { get; private set; }
+        public int ID { get; private set; }
 
         #endregion Fields and Properties
 
@@ -20,7 +21,7 @@ namespace NotesLibs {
         }
 
         private SentenceClass ProcessSentence(string sentence) {
-            return new SentenceClass();
+            return null;
         }
 
         public void Save() {
