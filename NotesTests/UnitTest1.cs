@@ -10,7 +10,7 @@ namespace NotesTests
 
             string textOfLink = "[Описание ссылки](https.google.com)";
 
-            Link link = new Link(textOfLink);
+            LinkElement link = new LinkElement(textOfLink);
 
             Assert.Equal(TypeOfElementSentence.Link, link.Type);
             Assert.Equal(textOfLink, link.Text);
@@ -21,7 +21,7 @@ namespace NotesTests
         [Fact]
         public void TestOfSimpleText() {
             string text = "Простой текст";
-            SimpleText simpleText = new SimpleText(text);
+            SimpleTextElement simpleText = new SimpleTextElement(text);
 
             Assert.Equal(TypeOfElementSentence.SimpleText, simpleText.Type);
             Assert.Equal(text, simpleText.Text);

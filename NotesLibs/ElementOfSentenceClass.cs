@@ -18,7 +18,6 @@ namespace NotesLibs {
         }
     }
 
-
     public enum TypeOfElementSentence {
         SimpleText,
         Link,
@@ -28,11 +27,11 @@ namespace NotesLibs {
         Code
     }
 
-    public class Link : ElementOfSentenceClass {
+    public class LinkElement : ElementOfSentenceClass {
         public string Alias { get; private set; }
         public string Address { get; private set; }
 
-        public Link(string content) : base(TypeOfElementSentence.Link, content) {
+        public LinkElement(string content) : base(TypeOfElementSentence.Link, content) {
             int startIndexOfAlias = this.Text.IndexOf('[') + 1;
             int endIndexOfAlias = this.Text.IndexOf(']');
             int startIndexOfAdress = this.Text.IndexOf('(') + 1;
@@ -42,8 +41,30 @@ namespace NotesLibs {
         }
     }
 
-    public class SimpleText : ElementOfSentenceClass {
-        public SimpleText(string content) : base(TypeOfElementSentence.SimpleText, content) {
+    public class SimpleTextElement : ElementOfSentenceClass {
+        public SimpleTextElement(string content) : base(TypeOfElementSentence.SimpleText, content) {
+        }
+    }
+
+    public class BoldTextElement : ElementOfSentenceClass {
+        public BoldTextElement(string content) : base(TypeOfElementSentence.BoldText, content) {
+        }
+    }
+
+    public class ItalicTextElement : ElementOfSentenceClass {
+        public ItalicTextElement(string content) : base(TypeOfElementSentence.ItalicText, content) {
+        }
+    }
+
+    public class BoldItalicTextElement : ElementOfSentenceClass {
+        public BoldItalicTextElement(string content) : base(TypeOfElementSentence.BoldItalicText, content) {
+        }
+    }
+
+    public class CodeElement : ElementOfSentenceClass {
+        public string Language { get; private set; }
+        public CodeElement(string content) : base(TypeOfElementSentence.Code, content) {
+            Language = string.Empty;
         }
     }
 
