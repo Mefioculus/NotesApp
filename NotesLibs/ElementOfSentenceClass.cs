@@ -20,18 +20,18 @@ namespace NotesLibs {
 
     public enum TypeOfElementSentence {
         SimpleText,
-        Link,
+        LinkText,
         BoldText,
         ItalicText,
         BoldItalicText,
-        Code
+        CodeText
     }
 
     public class LinkElement : ElementOfSentenceClass {
         public string Alias { get; private set; }
         public string Address { get; private set; }
 
-        public LinkElement(string content) : base(TypeOfElementSentence.Link, content) {
+        public LinkElement(string content) : base(TypeOfElementSentence.LinkText, content) {
             int startIndexOfAlias = this.Text.IndexOf('[') + 1;
             int endIndexOfAlias = this.Text.IndexOf(']');
             int startIndexOfAdress = this.Text.IndexOf('(') + 1;
@@ -63,8 +63,8 @@ namespace NotesLibs {
 
     public class CodeElement : ElementOfSentenceClass {
         public string Language { get; private set; }
-        public CodeElement(string content) : base(TypeOfElementSentence.Code, content) {
-            Language = string.Empty;
+        public CodeElement(string content, string language = "") : base(TypeOfElementSentence.CodeText, content) {
+            Language = language;
         }
     }
 
